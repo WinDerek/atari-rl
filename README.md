@@ -33,6 +33,8 @@ $ pip install numpy
 
 ## 2. Baseline Random Agent
 
+`bot_random.py`
+
 ## 3. Reinforcement Learning Basics
 
 ## 4. Q-Learning Agent for FrozenLake
