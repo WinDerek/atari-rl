@@ -2,29 +2,43 @@
 Bot 2 -- Make a random, baseline agent for the SpaceInvaders game.
 """
 
+
 import gym
 import random
-random.seed(0)  # make results reproducible
 
-num_episodes = 10
+
+# Make results reproducible
+random.seed(0)
+
+
+NUM_EPISODES = 10
 
 
 def main():
-    env = gym.make('SpaceInvaders-v0')  # create the game
-    env.seed(0)  # make results reproducible
+    # Create the environment
+    env = gym.make('SpaceInvaders-v0')
+
+    # Make results reproducible
+    env.seed(0)
+    
     rewards = []
 
-    for _ in range(num_episodes):
+    for episode_index in range(NUM_EPISODES):
         env.reset()
         episode_reward = 0
+
         while True:
-            _, reward, done, _ = env.step(env.action_space.sample())  # random action
+            # Conduct random action
+            _, reward, done, _ = env.step(env.action_space.sample())
+            
             episode_reward += reward
+            
             if done:
-                print('Reward: %d' % episode_reward)
+                print('Episode #{:d}, reward: {:.2f}'.format(episode_index + 1, episode_reward))
                 rewards.append(episode_reward)
                 break
-    print('Average reward: %.2f' % (sum(rewards) / len(rewards)))
+    
+    print('Average reward over {:d} episodes: {:.2f}'.format(NUM_EPISODES, sum(rewards) / len(rewards)))
 
 
 if __name__ == '__main__':
