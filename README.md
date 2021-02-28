@@ -43,26 +43,25 @@ See `bot_random.py`
 
 **Policy evaluation**
 
-<img src="./figure/policy_evaluation_discrete_case.png" width="800">
-
+<img src="./figure/policy_evaluation_discrete_case.png" width="400">
 
 **Policy improvement**
 
-<img src="./figure/policy_improvement_discrete_case.png" width="800">
+<img src="./figure/policy_improvement_discrete_case.png" width="400">
 
 **Policy iteration**
 
-<img src="./figure/policy_iteration_diagram.png" width="400">
+<img src="./figure/policy_iteration_diagram.png" width="200">
 
 **Value iteration**
 
-<img src="./figure/value_iteration_discrete_case.png" width="800">
+<img src="./figure/value_iteration_discrete_case.png" width="600">
 
 ## 4. Q-Learning Agent for FrozenLake
 
 **Q-learning**
 
-<img src="./figure/q_learning_discrete_case.png" width="800">
+<img src="./figure/q_learning_discrete_case.png" width="600">
 
 ## 5. Deep Q-Learning Agent for FrozenLake
 
