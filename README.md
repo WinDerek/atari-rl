@@ -67,6 +67,8 @@ See `bot_random.py`
 
 <img src="./figure/q_learning_discrete_case.png" width="700">
 
+See `bot_q_learning.py`
+
 ## 5. Deep Q-Learning Agent for FrozenLake
 
 ## 6. Bias-Variance Tradeoffs
