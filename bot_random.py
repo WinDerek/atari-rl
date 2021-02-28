@@ -21,7 +21,7 @@ def main():
     # Make results reproducible
     env.seed(0)
     
-    rewards = []
+    reward_list = []
 
     for episode_index in range(NUM_EPISODES):
         env.reset()
@@ -29,16 +29,17 @@ def main():
 
         while True:
             # Conduct random action
-            _, reward, done, _ = env.step(env.action_space.sample())
+            random_action = env.action_space.sample()
+            _, reward, done, _ = env.step(random_action)
             
             episode_reward += reward
             
             if done:
                 print('Episode #{:d}, reward: {:.2f}'.format(episode_index + 1, episode_reward))
-                rewards.append(episode_reward)
+                reward_list.append(episode_reward)
                 break
     
-    print('Average reward over {:d} episodes: {:.2f}'.format(NUM_EPISODES, sum(rewards) / len(rewards)))
+    print('Average reward over {:d} episodes: {:.2f}'.format(NUM_EPISODES, sum(reward_list) / len(reward_list)))
 
 
 if __name__ == '__main__':

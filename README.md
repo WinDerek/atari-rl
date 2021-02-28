@@ -1,4 +1,6 @@
-# Requirements
+# Atari RL
+
+**Requirements**
 
 **Bias-Variance for Deep Reinforcement Learning: How To Build a Bot for Atari with OpenAI Gym**
 
@@ -33,11 +35,34 @@ $ pip install numpy
 
 ## 2. Baseline Random Agent
 
-`bot_random.py`
+See `bot_random.py`
 
 ## 3. Reinforcement Learning Basics
 
+### 3.1 Dynamic Programming
+
+**Policy evaluation**
+
+<img src="./figure/policy_evaluation_discrete_case.png" width="800">
+
+
+**Policy improvement**
+
+<img src="./figure/policy_improvement_discrete_case.png" width="800">
+
+**Policy iteration**
+
+<img src="./figure/policy_iteration_diagram.png" width="400">
+
+**Value iteration**
+
+<img src="./figure/value_iteration_discrete_case.png" width="800">
+
 ## 4. Q-Learning Agent for FrozenLake
+
+**Q-learning**
+
+<img src="./figure/q_learning_discrete_case.png" width="800">
 
 ## 5. Deep Q-Learning Agent for FrozenLake
 
