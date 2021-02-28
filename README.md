@@ -4,6 +4,10 @@
 
 **Bias-Variance for Deep Reinforcement Learning: How To Build a Bot for Atari with OpenAI Gym**
 
+References:
+
+- [https://github.com/alvinwan/bots-for-atari-games](https://github.com/alvinwan/bots-for-atari-games)
+
 ## 1. Setup the Environment
 
 **Install Miniconda**
