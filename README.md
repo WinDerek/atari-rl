@@ -38,6 +38,7 @@ $ conda install pip
 $ pip install gym
 $ pip install "gym[atari]"
 $ pip install tensorflow
+$ pip install tensorpack
 $ pip install numpy
 ```
 
