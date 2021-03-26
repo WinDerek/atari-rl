@@ -1,5 +1,9 @@
 # Atari RL
 
+To-Do List:
+- [ ] Migrate TensorFlow 1 to Tensorflow 2.
+- [ ] Typeset a LaTeX documentation.
+
 **Requirements**
 
 **Bias-Variance for Deep Reinforcement Learning: How To Build a Bot for Atari with OpenAI Gym**
@@ -39,7 +43,7 @@ $ pip install numpy
 
 ## 2. Baseline Random Agent
 
-See `bot_random.py`
+Source code: `random_agent.py`
 
 ## 3. Reinforcement Learning Basics
 
@@ -67,9 +71,11 @@ See `bot_random.py`
 
 <img src="./figure/q_learning_discrete_case.png" width="700">
 
-See `bot_q_learning.py`
+Source code: `q_learning_agent.py`
 
 ## 5. Deep Q-Learning Agent for FrozenLake
+
+Source code: `dqn_agent.py`
 
 ## 6. Bias-Variance Tradeoffs
 
