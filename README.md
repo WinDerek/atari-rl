@@ -28,15 +28,49 @@ $ bash ./Miniconda3-latest-Linux-x86_64.sh
 > - References: https://docs.conda.io/en/latest/index.html
 > - As the official link is unreachable or too slow, here I replace the original link with the Tsinghua mirror.
 
-**Setup a new conda environment**
+**Create a new conda environment**
 
 ```shell
 $ conda create --name atari_env python=3.8
 $ conda activate atari_env
+```
+
+**Install OpenCV (4.2.0)**
+
+```shell
 $ conda install -c conda-forge opencv=4.2.0
+```
+
+**Install pip**
+
+```shell
 $ conda install pip
+```
+
+**Install OpenAI Gym**
+
+For non-Windows systems:
+
+```shell
 $ pip install gym
 $ pip install "gym[atari]"
+```
+
+For Windows systems:
+
+```shell
+$ pip install --no-index -f https://github.com/Kojoley/atari-py/releases atari_py
+$ pip install gym
+$ pip install "gym[atari]"
+```
+
+References:
+- [https://github.com/openai/atari-py/issues/69#issuecomment-554135051](https://github.com/openai/atari-py/issues/69#issuecomment-554135051)
+- [https://blog.csdn.net/ScienceVip/article/details/105097833](https://blog.csdn.net/ScienceVip/article/details/105097833)
+
+**Install Tensorflow, tensorpack and numpy**
+
+```shell
 $ pip install tensorflow
 $ pip install tensorpack
 $ pip install numpy
