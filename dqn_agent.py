@@ -1,5 +1,5 @@
 """
-Bot 6 - Fully featured deep q-learning network.
+Bot 6 - A full-featured deep Q-learning agent.
 """
 
 import argparse
@@ -7,9 +7,9 @@ import cv2
 import gym
 import numpy as np
 import random
-# import tensorflow as tf
-import tensorflow.compat.v1 as tf
-tf.disable_v2_behavior()
+import tensorflow as tf
+# import tensorflow.compat.v1 as tf
+# tf.disable_v2_behavior()
 from a3c import a3c_model
 # random.seed(0)  # make results reproducible
 # tf.set_random_seed(0)
@@ -22,13 +22,14 @@ def downsample(state):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Run DQN bot')
+    parser = argparse.ArgumentParser(description='Run DQN agent.')
     parser.add_argument('--model', type=str, help='Path to model', default='models/SpaceInvaders-v0.tfmodel')
     parser.add_argument('--visual', action='store_true')
     args = parser.parse_args()
 
-    env = gym.make('SpaceInvaders-v0')  # create the game
-    env.seed(0)  # make results reproducible
+    # Create the environment
+    env = gym.make('SpaceInvaders-v0')
+    
     rewards = []
 
     model = a3c_model(load=args.model)
@@ -41,11 +42,14 @@ def main():
             else:
                 frames = np.concatenate(states[-4:], axis=3)
                 action = np.argmax(model([frames]))
+
             if args.visual:
                 env.render()
+            
             state, reward, done, _ = env.step(action)
             states.append(downsample(state))
             episode_reward += reward
+            
             if done:
                 print('Reward: %d' % episode_reward)
                 rewards.append(episode_reward)

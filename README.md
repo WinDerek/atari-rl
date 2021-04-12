@@ -31,8 +31,21 @@ $ bash ./Miniconda3-latest-Linux-x86_64.sh
 **Create a new conda environment**
 
 ```shell
-$ conda create --name atari_env python=3.8
+$ conda create --name atari_env python=3.6
 $ conda activate atari_env
+```
+
+**New instructions**
+
+```shell
+$ conda install pip
+$ python -m pip install gym==0.9.5 tensorflow==1.5.0 tensorpack==0.8.0 numpy==1.14.0 scipy==1.1.0 opencv-python==3.4.1.15
+$ python -m pip install "gym[atari]"
+```
+
+```shell
+$ mkdir models
+$ wget http://models.tensorpack.com/OpenAIGym/SpaceInvaders-v0.tfmodel -P models --no-check-certificate
 ```
 
 **Install OpenCV (4.2.0)**

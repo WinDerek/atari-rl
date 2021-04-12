@@ -3,9 +3,9 @@ Allows you to pick layer to output from. Graph code below from train-atari.py in
 """
 
 import numpy as np
-# import tensorflow as tf
-import tensorflow.compat.v1 as tf
-tf.disable_v2_behavior()
+import tensorflow as tf
+# import tensorflow.compat.v1 as tf
+# tf.disable_v2_behavior()
 
 from tensorpack import *
 from tensorpack.utils.concurrency import *

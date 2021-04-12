@@ -1,3 +1,6 @@
+# The models
+models/
+
 # Created by https://www.toptal.com/developers/gitignore/api/python,latex
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,latex
 
@@ -442,3 +445,6 @@ Thumbs.db #thumbnail cache on Windows
 
 
 # End of https://www.toptal.com/developers/gitignore/api/python,latex
+
+# The models files
+models/
