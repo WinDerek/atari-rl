@@ -36,6 +36,11 @@ $ mkdir models
 $ wget http://models.tensorpack.com/OpenAIGym/SpaceInvaders-v0.tfmodel -P models --no-check-certificate
 ```
 
+If you want to remove the entire conda environment and re-setup the environment, execute the following command:
+```
+$ conda env remove --name atari_env
+```
+
 ## Legacy steps (PLEASE IGNORE THE FOLLOWING STEPS)
 
 **Install OpenCV (4.2.0)**

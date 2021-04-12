@@ -61,3 +61,6 @@ Source code: `least_squares_agent.py`
 ## 8. Deep Q-Learning Agent for Space Invaders
 
 Source code: `dqn_agent.py`
+
+- Without GUI: `python dqn_agent.py`
+- With GUI: `python dqn_agent.py --visual`
