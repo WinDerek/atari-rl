@@ -6,9 +6,9 @@ from typing import List
 import gym
 import numpy as np
 import random
-# import tensorflow as tf
-import tensorflow.compat.v1 as tf
-tf.disable_v2_behavior()
+import tensorflow as tf
+# import tensorflow.compat.v1 as tf
+# tf.disable_v2_behavior()
 
 num_episodes = 4000
 discount_factor = 0.99
