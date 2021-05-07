@@ -14,7 +14,9 @@ import random
 num_episodes = 5000
 discount_factor = 0.85
 learning_rate = 0.9
+# w 的学习率
 w_lr = 0.5
+# 每隔 500 个 episode 输出一次数据
 report_interval = 500
 report = '100-ep Average: %.2f . Best 100-ep Average: %.2f . Average: %.2f ' \
          '(Episode %d)'

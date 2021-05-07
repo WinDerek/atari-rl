@@ -15,6 +15,7 @@ NUM_EPISODES = 4000
 discount_factor = 0.99
 learning_rate = 0.15
 report_interval = 500
+# 探索概率。启发式的想法，episode 越大（训练得越久），探索概率越小。
 exploration_probability = lambda episode: 50. / (episode + 10)
 report = '100-ep Average: %.2f . Best 100-ep Average: %.2f . Average: %.2f ' \
          '(Episode %d)'
@@ -84,6 +85,7 @@ def main():
                 # 选取最优的 action，或者均匀地随机选一个 action
                 obs_t_oh = one_hot(obs_t, n_obs)
                 action = session.run(pred_action_ph, feed_dict={obs_t_ph: obs_t_oh})[0]
+                # 以一定的概率进行探索，随机性来自于 np.random.rand() 函数
                 if (np.random.rand(1) < exploration_probability(episode)):
                     action = env.action_space.sample()
                 obs_tp1, reward, done, _ = env.step(action)
