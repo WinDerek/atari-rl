@@ -46,7 +46,22 @@ References:
 
 <img src="./figure/q_learning_discrete_case.png" width="700">
 
-`python q_learning_agent.py`
+### 4.1 运行单次
+
+```shell
+$ python q_learning_agent.py
+```
+
+### 4.2 运行多次取平均并画图
+
+```shell
+$ python run_q_learning.py
+$ python plot.py q_learning
+```
+
+Episode reward of Q-learning on FrozenLake-v0 (averaged over 100 repetitions)
+
+<img src="./results/q_learning/figures/q_learning.png" width="600">
 
 ## 5. Deep Q-Learning Agent for FrozenLake
 

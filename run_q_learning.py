@@ -23,7 +23,7 @@ ray.init(dashboard_host="0.0.0.0")
 
 
 # Hyperparameters
-REPETITIONS_COUNT = 1000
+REPETITIONS_COUNT = 100
 EPISODES_COUNT = 5000
 report = '100-ep Average: %.2f . Best 100-ep Average: %.2f . Total Average: %.2f (Episode %d)'
 
