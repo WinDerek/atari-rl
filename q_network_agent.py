@@ -57,6 +57,8 @@ def main():
     # 创建计算图
     W = tf.Variable(tf.random_uniform([n_obs, n_actions], 0, 0.01))
     q_current = tf.matmul(obs_t_ph, W)
+    # print("type(obs_t_ph):", type(obs_t_ph))
+    # print("obs_t_ph.shape:", obs_t_ph.shape)
     q_target = tf.matmul(obs_tp1_ph, W)
 
     q_target_max = tf.reduce_max(q_target_ph, axis=1)
@@ -86,7 +88,7 @@ def main():
                 obs_t_oh = one_hot(obs_t, n_obs)
                 action = session.run(pred_action_ph, feed_dict={obs_t_ph: obs_t_oh})[0]
                 # 以一定的概率进行探索，随机性来自于 np.random.rand() 函数
-                if (np.random.rand(1) < exploration_probability(episode)):
+                if (np.random.rand(1) < exploration_probability(episode)): # X ~ Unif[0, 1], P(X < 0.1) = 0.1
                     action = env.action_space.sample()
                 obs_tp1, reward, done, _ = env.step(action)
 

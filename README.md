@@ -18,7 +18,7 @@ References:
 
 ## 2. Baseline Random Agent
 
-Source code: `random_agent.py`
+`python random_agent.py`
 
 ## 3. Reinforcement Learning Basics
 
@@ -46,21 +46,19 @@ Source code: `random_agent.py`
 
 <img src="./figure/q_learning_discrete_case.png" width="700">
 
-Source code: `q_learning_agent.py`
+`python q_learning_agent.py`
 
 ## 5. Deep Q-Learning Agent for FrozenLake
 
-Source code: `q_network_agent.py`
+`python q_network_agent.py`
 
 ## 6. Bias-Variance Tradeoffs
 
 ## 7. Least Squares Agent for FrozenLake
 
-Source code: `least_squares_agent.py`
+`python least_squares_agent.py`
 
 ## 8. Deep Q-Learning Agent for Space Invaders
-
-Source code: `dqn_agent.py`
 
 - Without GUI: `python dqn_agent.py`
 - With GUI: `python dqn_agent.py --visual`
