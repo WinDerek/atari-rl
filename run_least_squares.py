@@ -2,11 +2,28 @@
 Least squares Q-learning agent for FrozenLake.
 """
 
+
+from pathlib import Path
+import pickle
+import random
+import time
+
 import gym
 import numpy as np
-import random
+import ray
+
+from util.time_utils import format_time
 
 
+total_begin_time = time.time()
+
+
+# Initialize ray
+ray.init(dashboard_host="0.0.0.0")
+
+
+# 超参数
+REPETITIONS_COUNT = 100
 num_episodes = 5000
 discount_factor = 0.85
 learning_rate = 0.9
@@ -14,6 +31,7 @@ learning_rate = 0.9
 w_lr = 0.5
 # 每隔 500 个 episode 输出一次数据
 report_interval = 500
+
 report = '100-ep Average: %.2f . Best 100-ep Average: %.2f . Average: %.2f ' \
          '(Episode %d)'
 
@@ -57,11 +75,14 @@ def print_report(rewards, episode):
         episode))
 
 
-def main():
+@ray.remote
+def experiment():
+    begin_time = time.time()
+
     # Create the environment
     env = gym.make('FrozenLake-v0')
-    # env.seed(0)  # make results reproducible
-    rewards = []
+    
+    episode_reward_array = np.zeros(num_episodes, dtype=float)
 
     n_obs, n_actions = env.observation_space.n, env.action_space.n
     W, Q = initialize((n_obs, n_actions))
@@ -88,11 +109,40 @@ def main():
             if len(states) % 10 == 0:
                 W, Q = train(np.array(states), np.array(labels), W)
             if done:
-                rewards.append(episode_reward)
+                episode_reward_array[episode - 1] = episode_reward
+
                 if episode % report_interval == 0:
-                    print_report(rewards, episode)
+                    print_report(episode_reward_array, episode)
                 break
-    print_report(rewards, -1)
+    print_report(episode_reward_array, -1)
+
+    end_time = time.time()
+    print("Experiment completed in {:s}.".format(format_time(end_time - begin_time)))
+
+    return episode_reward_array
+
+
+def main():
+    futures = []
+    for repetition_index in range(REPETITIONS_COUNT):
+        futures.append(experiment.remote())
+
+    # Merge the results
+    episode_reward_array_list = ray.get(futures)
+    episode_reward_2darray = np.stack(episode_reward_array_list)
+    print("episode_reward_2darray.shape:", episode_reward_2darray.shape)
+
+    # Persist the results
+    results_path = Path("./results/least_squares")
+    results_path.mkdir(parents=True, exist_ok=True)
+    results_file = results_path.joinpath("results.pkl")
+    results = { "episode_reward_2darray": episode_reward_2darray }
+    with open(results_file, "wb") as f:
+        pickle.dump(results, f)
+        print("The results have been persisted into the file \"{:s}\".".format(str(results_file)))
+    
+    total_end_time = time.time()
+    print("Total time usage: {:s}.".format(format_time(total_end_time - total_begin_time)))
 
 if __name__ == '__main__':
     main()

@@ -88,9 +88,33 @@ Episode reward of Q network agent on FrozenLake-v0 (averaged over 100 repetition
 
 ## 7. Least Squares Agent for FrozenLake
 
-`python least_squares_agent.py`
+### 5.1 运行单次
+
+```shell
+$ python least_squares_agent.py
+```
+
+### 5.2 运行多次取平均并画图
+
+```shell
+$ python run_least_squares.py
+$ python plot.py least_squares
+```
+
+Episode reward of the least squares Q-learning agent on FrozenLake-v0 (averaged over 100 repetitions)
+
+<img src="./results/least_squares/figures/least_squares.png" width="600">
 
 ## 8. Deep Q-Learning Agent for Space Invaders
 
 - Without GUI: `python dqn_agent.py`
 - With GUI: `python dqn_agent.py --visual`
+
+```shell
+$ python run_dqn.py
+$ python plot_dqn.py
+```
+
+Episode reward of the DQN agent on SpaceInvaders-v0:
+
+<img src="./results/dqn/figures/dqn.png" width="600">

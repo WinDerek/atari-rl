@@ -25,7 +25,7 @@ $ conda activate atari_env
 
 ```shell
 $ conda install pip
-$ python -m pip install gym==0.9.5 tensorflow==1.5.0 tensorpack==0.8.0 numpy==1.14.0 scipy==1.1.0 opencv-python==3.4.1.15
+$ python -m pip install atari-py==0.2.6 gym==0.9.5 tensorflow==1.5.0 tensorpack==0.8.0 numpy==1.14.0 scipy==1.1.0 opencv-python==3.4.1.15
 $ python -m pip install "gym[atari]"
 $ pip install matplotlib
 $ pip install jupyterlab
