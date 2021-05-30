@@ -3,6 +3,8 @@ Bot 6 - A full-featured deep Q-learning agent.
 """
 
 import argparse
+import pickle
+from pathlib import Path
 import cv2
 import gym
 import numpy as np
@@ -19,7 +21,7 @@ from util.time_utils import format_time
 total_begin_time = time.time()
 
 
-num_episodes = 10
+num_episodes = 100
 
 
 def downsample(state):
@@ -98,7 +100,7 @@ def main():
         print("The results have been persisted into the file \"{:s}\".".format(str(results_file)))
 
     total_end_time = time.time()
-    print("Total time usage: {:s}.".format(format_time(end_time - begin_time)))
+    print("Total time usage: {:s}.".format(format_time(total_end_time - total_begin_time)))
 
 
 if __name__ == '__main__':
